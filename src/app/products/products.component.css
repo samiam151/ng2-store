@@ -1,0 +1,9 @@
+.product { 
+    padding: 10px 15px;
+}
+.product:nth-of-type(2n){
+    background-color: #eee;
+}
+.answer {
+    color: rebeccapurple;
+}
