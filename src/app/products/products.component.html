@@ -1,3 +1,4 @@
+<h1>Shop Products</h1>
 <div class="product" *ngFor="let product of products">
-  <product [product]=product></product>
+  <product [product]="product" (productClick)="handleProductClicked(product)"></product>
 </div>
