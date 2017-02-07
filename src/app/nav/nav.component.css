@@ -1,0 +1,19 @@
+nav {
+    width:100%;
+    padding: 10px 7.5%;
+    background-color: forestgreen;
+}
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav ul li {
+    margin-right: 25px;
+    list-style-type: none;
+    font-size: 1.2em;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
