@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class ProductThumbnailCompnonent {
-    @Input() product: any
+    @Input() product: any // data passed from the product-template
     @Output() productClick = new EventEmitter()
 
     addToCart() {
