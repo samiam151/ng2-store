@@ -1,4 +1,7 @@
-<h1>Shop Products</h1>
-<div class="product" *ngFor="let product of products">
-  <product [product]="product" (productClick)="handleProductClicked(product)"></product>
+<div class="fade-in">
+  <h1>Shop Products</h1>
+  <div class="product" *ngFor="let product of products">
+    <product [product]="product" (productClick)="handleProductClicked(product)"></product>
+  </div>
 </div>
+
