@@ -8,7 +8,6 @@ export class ProductService {
         return PRODUCTS;
     }
     getProduct(id){
-        console.log(id + 1);
         return PRODUCTS[id - 1] 
     }
 }

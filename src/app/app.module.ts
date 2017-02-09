@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { AddProductComponent } from './products/add-product/addProduct.component';
 import { AppComponent } from './app.component';
+import { Error404Component } from './errors/404.component';
 import { NavComponent } from './nav/nav.component';
 import { ProductThumbnailCompnonent } from './products/products-thumbnail.component';
 import { ProductsComponent } from './products/products.component';
-import { ProductService } from './products/product.service';
 import { ProductsDetailComponent } from './products/product-detail/product-detail.component';
+
+import { ProductService } from './products/product.service';
+
+import { ProductRouteActivator } from './products/product-route-activator.service';
 
 import { appRoutes } from './routes';
 
@@ -21,7 +25,8 @@ import { appRoutes } from './routes';
     ProductThumbnailCompnonent,
     NavComponent,
     ProductsDetailComponent,
-    AddProductComponent
+    AddProductComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { appRoutes } from './routes';
     HttpModule
   ],  
   providers: [
-    ProductService
+    ProductService,
+    ProductRouteActivator
   ],
   bootstrap: [AppComponent]
 })
