@@ -63,5 +63,11 @@
       "pipe": true,
       "service": true
     }
-  }
+  },
+  "styles": [
+    "node_modules/toastr/build/toastr.min.css"
+  ],
+  "scripts": [
+    "node_modules/toastr/build.toastr.min.js"
+  ]
 }

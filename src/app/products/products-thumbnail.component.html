@@ -1,4 +1,4 @@
-<h3>Product: <span class="answer">{{product.name}}</span></h3>
+<h3>Product: <a class="answer" [routerLink]="['/products/' + product.id]">{{product.name}}</a></h3>
 <p>Price: <span class="answer">${{product.price}}</span></p>
 <p>Availability: <span class="answer">{{product.inStock}}</span></p>
 <p>Sizes: 

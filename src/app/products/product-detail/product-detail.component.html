@@ -1,0 +1,10 @@
+<h1>Product Detail</h1>
+<div class="product-detail">
+    <h2>{{product.name}}</h2>
+
+    <p>{{product?.price}}</p>
+    <p>{{product?.inStock}}</p>
+    <ul *ngFor="let size of product?.sizesAvailable">
+        <li>{{size}}</li>
+    </ul>
+</div>
