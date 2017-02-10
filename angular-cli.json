@@ -20,7 +20,8 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -65,9 +66,9 @@
     }
   },
   "styles": [
-    "node_modules/toastr/build/toastr.min.css"
+    
   ],
   "scripts": [
-    "node_modules/toastr/build.toastr.min.js"
+    
   ]
 }

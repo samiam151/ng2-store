@@ -8,7 +8,7 @@ import { ProductResolverService } from './products/product-resolver.service';
 import { LoginComponent } from './user/login.component';
 
 export const appRoutes:Routes = [
-    {path: "login", component: LoginComponent},
+    { path: 'login', component: LoginComponent},
     { path: 'products/add', component: AddProductComponent },
     { path: 'products', component: ProductsComponent, resolve: {products:ProductResolverService}},
     { path: 'products/:id', component: ProductsDetailComponent, canActivate: [ProductRouteActivator]},
