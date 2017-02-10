@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Product } from './product';
 import { ProductService } from './product.service';
@@ -9,11 +10,13 @@ import { ProductService } from './product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products:any[]
-  constructor (private productService: ProductService) { }
+  products:any
+  constructor (
+    private productService: ProductService,
+    private route: ActivatedRoute) { }
 
   ngOnInit () {
-    this.products = this.productService.getProducts()
+    this.products = this.route.snapshot.data['products']
   }
 
   handleProductClicked(data){

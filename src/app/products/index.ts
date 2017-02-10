@@ -1,0 +1,7 @@
+export * from './products.component'
+export * from './products-thumbnail.component'
+export * from './product-resolver.service'
+export * from './product-route-activator.service'
+export * from './product.service'
+export * from './add-product/addProduct.component'
+export * from './product-detail/product-detail.component'

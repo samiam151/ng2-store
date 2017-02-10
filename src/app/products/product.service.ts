@@ -1,13 +1,19 @@
 import { Injectable } from "@angular/core";
 import { Product } from "./product";
-
+import { Subject } from 'rxjs/RX';
 
 @Injectable()
 export class ProductService {
     getProducts() {
-        return PRODUCTS;
+        // return PRODUCTS;
+        let subject = new Subject()
+        setTimeout(() => {
+            subject.next(PRODUCTS);
+            subject.complete();
+        }, 10)
+        return subject
     }
-    getProduct(id){
+    getProduct(id:number){
         return PRODUCTS[id - 1] 
     }
 }
