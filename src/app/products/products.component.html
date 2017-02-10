@@ -6,6 +6,7 @@
 
   <div class="ProductGroup" *ngFor="let group of products">
     <a [routerLink]="['/products/' + group.id]">{{group.name}}</a>
+    <span><i>has {{group.products.length}} variants...</i></span>
   </div>
 </div>
 

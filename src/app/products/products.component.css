@@ -1,6 +1,4 @@
-.product { 
-    padding: 10px 15px;
-}
-.product:nth-of-type(2n){
-    background-color: #eee;
+a {
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
