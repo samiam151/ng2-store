@@ -16,7 +16,8 @@ export class ProductsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit () {
-    this.products = this.route.snapshot.data['products']
+    // this.products = this.route.snapshot.data['products']
+    this.products = this.productService.getProducts()
   }
 
   handleProductClicked(data){

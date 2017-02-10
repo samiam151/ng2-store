@@ -1,12 +1,21 @@
 <div class="fade-in">
     <h1>Product Detail</h1>
     <div class="product-detail">
-        <h2>{{product.name}}</h2>
+        
+        <div class="made" *ngFor="let product of product.products">
+            <h2>{{product.name}}</h2>
 
-        <p>{{product?.price}}</p>
+            <p>{{product.price}}</p>
+            <p>{{product.inStock}}</p>
+            <p>{{product.size}}</p>   
+        </div>
+
+        <!--<h2>{{product.name}}</h2>
+
+        <p>{{product.products}}</p>
         <p>{{product?.inStock}}</p>
         <ul *ngFor="let size of product?.sizesAvailable">
             <li>{{size}}</li>
-        </ul>
+        </ul>-->
     </div>
 </div>

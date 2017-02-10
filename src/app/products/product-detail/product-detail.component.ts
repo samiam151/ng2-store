@@ -7,13 +7,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsDetailComponent implements OnInit {
     product: any;
+    birthday: Date;
     constructor(
         private productService: ProductService,
         private route:ActivatedRoute
-        ) { }
+        ) { 
 
-    ngOnInit() { 
-        
+        }
+
+    ngOnInit() {     
         this.product = this.productService.getProduct(+this.route.snapshot.params['id']);
     }
 }
