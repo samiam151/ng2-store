@@ -24,3 +24,9 @@ nav ul li a:hover {
 nav ul li a.active {
     border-bottom: 3px solid white;
 }
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    
+}

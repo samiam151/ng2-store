@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<form #loginForm="ngForm" autocomplete="off" class="login-form" (ngSubmit)="login(loginForm.value)">
+    <div class="form-input">
+        <label for="username">
+            User Name: 
+            <input (ngModel)="username" name="username" type="text" id="username" required placeholder="User Name..." />
+        </label>
+        
+    </div>
+    <div class="form-input">
+        <label for="password">
+            Password: 
+        <input (ngModel)="password" name="password" type="password" id="password" required placeholder="Password...">
+    </label>
+    </div>
+
+
+    <input type="submit" class="button" value="Login">
+    <input type="button" class="button" value="Cancel">
+</form>

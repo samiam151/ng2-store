@@ -8,6 +8,8 @@ import { AddProductComponent } from './products/add-product/addProduct.component
 import { AppComponent } from './app.component';
 import { Error404Component } from './errors/404.component';
 import { NavComponent } from './nav/nav.component';
+import { AuthService } from './user/auth.service';
+import { LoginComponent } from './user/login.component';
 
 import { 
   ProductsComponent,
@@ -28,7 +30,8 @@ import { appRoutes } from './routes';
     NavComponent,
     ProductsDetailComponent,
     AddProductComponent,
-    Error404Component
+    Error404Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { appRoutes } from './routes';
   providers: [
     ProductService,
     ProductResolverService,
-    ProductRouteActivator
+    ProductRouteActivator,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

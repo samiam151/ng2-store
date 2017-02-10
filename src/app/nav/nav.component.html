@@ -1,9 +1,17 @@
 <nav class='nav'>
-  <ul class="nav_ul">
+  <ul class="nav_ul left">
     <!--<li class="nav_li"><a [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>-->
     <li class="nav_li"><a [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Products</a></li>
-    <li class="nav_li"><a>About Us</a></li>
+    <!--<li class="nav_li"><a>About Us</a></li>-->
     <li class="nav_li"><a [routerLink]="['products/add']" routerLinkActive="active">Add Product</a></li>
     <li class="nav_li"><a>Contact</a></li>
+    
+  </ul>
+
+  <ul class="nav_ul right">
+    <li class="nav_li">
+      <a *ngIf="!auth.isAuthenticated()"[routerLink]="['login']" routerLinkActive="active">Login</a>
+      <p *ngIf="auth.isAuthenticated()">Hello {{ auth.currentUser.firstName }}</p>
+    </li>
   </ul>
 </nav>
