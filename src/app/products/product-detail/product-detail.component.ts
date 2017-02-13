@@ -10,8 +10,9 @@ import { ProductGroup, Product } from '../product';
 })
 export class ProductsDetailComponent implements OnInit {
     product: any
+    products: any[]
     productKeys: any[]
-    config: Object = {}
+    configs: any[]
     matchingProducts: Product[]
     isDataAvailable: boolean = false
 
@@ -24,9 +25,17 @@ export class ProductsDetailComponent implements OnInit {
         this.productService.getProduct(sku).subscribe((data) => {
             this.product = data[0];
             this.product['imgUrl'] = "../assets/No_Image_Available.gif";
+            this.configs = this.getConfigurations()
             this.productKeys = Object.keys(data[0])
             this.isDataAvailable = true;            
         }); 
+    }
+
+    private getConfigurations(){
+        this.productService.getProducts().subscribe((data) => {
+            data.map
+        });
+        return this.configs;
     }
 
     returnMatchingProducts(option, receivedOption) {
