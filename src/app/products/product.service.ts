@@ -5,13 +5,13 @@ import { Subject, Observable } from 'rxjs/RX';
 @Injectable()
 export class ProductService {
     getProducts() {
-        return PRODUCT_GROUP;
-        // let subject = new Subject<ProductGroup[]>()
-        // setTimeout(() => {
-        //     subject.next(PRODUCT_GROUP);
-        //     subject.complete();
-        // }, 10)
-        // return subject
+        // return PRODUCT_GROUP;
+        let subject = new Subject<ProductGroup[]>()
+        setTimeout(() => {
+            subject.next(PRODUCT_GROUP);
+            subject.complete();
+        }, 0)
+        return subject
     }
     getProduct(id:number){
         return PRODUCT_GROUP[id - 1] 
