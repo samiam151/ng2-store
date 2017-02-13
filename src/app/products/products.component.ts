@@ -11,6 +11,7 @@ import { ProductService } from './product.service';
 })
 export class ProductsComponent implements OnInit {
   products:any
+  isDataAvailable: boolean = false
 
   constructor (
     private productService: ProductService,
