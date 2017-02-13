@@ -12,7 +12,7 @@ export const appRoutes:Routes = [
     { path: 'products/add', component: AddProductComponent },
     { path: 'products', component: ProductsComponent, resolve: {products:ProductResolverService}},
     // { path: 'products', component: ProductsComponent },
-    { path: 'products/:id', component: ProductsDetailComponent, canActivate: [ProductRouteActivator]},
+    { path: 'products/:sku', component: ProductsDetailComponent, canActivate: [ProductRouteActivator]},
     { path: '404', component: Error404Component },
     { path: '', redirectTo: 'products', pathMatch: 'full'}
 ]

@@ -1,21 +1,14 @@
-<div class="fade-in">
-    <h1>Product Detail</h1>
-    <div class="product-detail">
-        
-        <div class="made" *ngFor="let product of product.products">
-            <h2>{{product.name}}</h2>
+<div class="fade-in product-detail-cont">
 
-            <p>{{product.price}}</p>
-            <p>{{product.inStock}}</p>
-            <p>{{product.size}}</p>   
+    <div class="matchingProduct">
+        <h1>Product Detail</h1>
+        <div class="match" *ngIf="isDataAvailable">
+            <h3>{{product.SKU}}</h3>
+            <img src="{{product.imgUrl}}" alt="no image">   
+            <p *ngFor="let key of productKeys">
+                <span *ngIf="product[key]">{{key}}: {{product[key]}}</span>
+            </p>
         </div>
-
-        <!--<h2>{{product.name}}</h2>
-
-        <p>{{product.products}}</p>
-        <p>{{product?.inStock}}</p>
-        <ul *ngFor="let size of product?.sizesAvailable">
-            <li>{{size}}</li>
-        </ul>-->
     </div>
+
 </div>

@@ -12,7 +12,7 @@ export class ProductRouteActivator implements CanActivate {
         ) { }
 
     canActivate(route:ActivatedRouteSnapshot) {
-        const productExists = !!this.productService.getProduct(+route.params['id'])
+        const productExists = !!this.productService.getProduct(+route.params['sku'])
 
         if (!productExists)
             this.router.navigate(['/404'])

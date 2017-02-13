@@ -1,0 +1,13 @@
+h1 {
+    margin-bottom: 25px;
+}
+
+.product-detail-cont {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.product-detail-cont > div {
+    width: 50%;
+}

@@ -2,3 +2,17 @@ a {
     font-size: 1.2em;
     line-height: 1.5em;
 }
+
+.product-list {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.ProductGroup {
+    width: calc(100% / 4);
+    padding: 3%;
+}
+
+.ProductGroup img {
+    width: 100%;
+}

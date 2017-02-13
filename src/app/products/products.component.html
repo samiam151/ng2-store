@@ -1,12 +1,14 @@
-<div class="fade-in">
-  <h1>Shop Products</h1>
+<h1>Shop Products</h1>
+<div class="product-list fade-in">
+  
   <!--<div class="product" *ngFor="let product of products">
     <product [product]="product" (productClick)="handleProductClicked(product)"></product>
   </div>-->
 
   <div class="ProductGroup" *ngFor="let group of products">
-    <a [routerLink]="['/products/' + group.id]">{{group.name}}</a>
-    <span><i>has {{group.products.length}} variants...</i></span>
+    <img src="{{group.imgUrl}}" alt="">
+    <a [routerLink]="['/products/' + group.SKU]">{{group.SKU}}</a>
+    <!--<span><i>has {{group.products.length}} variants...</i></span>-->
   </div>
 </div>
 

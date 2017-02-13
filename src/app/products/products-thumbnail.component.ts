@@ -11,7 +11,6 @@ export class ProductThumbnailCompnonent {
     @Output() productClick = new EventEmitter()
 
     addToCart() {
-        console.log('Product Added...');
         this.productClick.emit();
     }
 }   
