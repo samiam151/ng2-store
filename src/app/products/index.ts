@@ -1,5 +1,5 @@
 export * from './products.component'
-export * from './products-thumbnail.component'
+export * from './product-thumbnail/products-thumbnail.component'
 export * from './product-resolver.service'
 export * from './product-route-activator.service'
 export * from './product.service'
