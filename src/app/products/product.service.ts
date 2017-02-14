@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Product, ProductGroup } from "./product";
 import { Subject, Observable } from 'rxjs/RX';
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -11,8 +11,10 @@ export class ProductService {
     private url = "../../data.json"
     constructor(private http: Http) {}
 
-    getProducts(): Observable<any> {        
-        return this.http.get(this.url).map(data => this.parseData(data));
+    getProducts(): Observable<any> {    
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });    
+        return this.http.get(this.url, options).map(data => this.parseData(data));
     }
     getProduct(sku: any){
         return this.http.get(this.url).map(data => this.filterForProduct(data, sku));
