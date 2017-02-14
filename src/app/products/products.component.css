@@ -16,3 +16,7 @@ a {
 .ProductGroup img {
     width: 100%;
 }
+
+.ProductGroup a {
+    word-wrap: break-word;
+}

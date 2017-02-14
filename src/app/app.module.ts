@@ -10,6 +10,7 @@ import { Error404Component } from './errors/404.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './user/auth.service';
 import { LoginComponent } from './user/login.component';
+import { ProductFilterService } from './products/filtering.service';
 
 import { 
   ProductsComponent,
@@ -43,7 +44,8 @@ import { appRoutes } from './routes';
     ProductService,
     ProductResolverService,
     ProductRouteActivator,
-    AuthService
+    AuthService,
+    ProductFilterService
   ],
   bootstrap: [AppComponent]
 })
