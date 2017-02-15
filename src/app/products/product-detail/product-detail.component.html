@@ -12,14 +12,16 @@
             <div class="alloptions" *ngFor="let key of optionsObj">
                 <span *ngIf="key == 'Option1'">
                     <span *ngFor="let value of options[key]">
-                        <a class="option" (click)="chooseOption(key, value)">{{value}}</a>   
+                        <a class="option" (click)="chooseOption(key, value, $event)">{{value}}</a>   
                     </span>
                 </span>
             </div>
 
-            <!--<div class="options">
-                <a class="option" *ngFor="let option of options" (click)="chooseOption(option)">{{option}}</a>   
-            </div>-->
+            
+            <button class="button" *ngIf="product['Inventory'] > 0">Add To Cart</button>
+            <button class="button" *ngIf="product['Inventory'] <= 0">Not Available</button>
         </div>
+
+
     </div>
 </div>

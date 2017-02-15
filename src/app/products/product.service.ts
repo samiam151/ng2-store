@@ -17,10 +17,14 @@ export class ProductService {
         return this.http.get(this.url, options).map(data => this.parseData(data));
     }
     getProduct(sku: any){
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });    
         return this.http.get(this.url).map(data => this.filterForProduct(data, sku));
     }
 
     getProductFromConfigs(configs: Object){
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });    
         return this.http.get(this.url).map(data => this.filterForConfig(data, configs));
     }
 

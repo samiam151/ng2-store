@@ -28,6 +28,11 @@ h1 {
     
 }
 
+.option.selected {
+    background-color: tomato;
+    color: white;
+}
+
 .option:hover {
     background-color: orange;
     border-color: tomato;

@@ -40,14 +40,20 @@ export class ProductsDetailComponent implements OnInit {
 
     ngOnInit() { }
 
-    chooseOption(key, value) {
+    chooseOption(key, value, e) {
         this.chosenOptions = this.filter.setCurrentConfig(this.chosenOptions, key, value)
-        console.log(this.chosenOptions);
-
         this.productService.getProductFromConfigs(this.chosenOptions).subscribe(data => {
             this.product = data[0]
             this.product['imgUrl'] = "../assets/No_Image_Available.gif";
-            console.log(this.product)
         })
+        this.toggleSelectedOption(e);
+        
+    }
+
+    toggleSelectedOption(e){
+        if (document.querySelector('.option.selected')) {
+            document.querySelector('.option.selected').classList.remove('selected')
+        }
+        e.target.classList.add('selected')
     }
 }

@@ -23,15 +23,17 @@ a:hover {
 .button {
     display: inline-block;
     padding: 5px 10px;
-    margin: 5px 5px 5px 0;
+    margin: 10px 5px 5px 0;
     border-radius: 2px;
     background-color: tomato;
     color: white;
     text-decoration: none;
+    border: 2px solid #ff3814;
+
 }
 .button:hover {
     color: #ddd;
-
+    cursor: pointer;
 }
 
 .fade-in {
