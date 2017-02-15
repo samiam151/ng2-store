@@ -12,11 +12,10 @@ import { IOptions } from './IOptions';
 })
 export class ProductsDetailComponent implements OnInit {
     product: any
-    all_products: any[]
     productKeys: any[]
     options: IOptions
+    optionsObj: any[]
     chosenOptions: Object = {}
-    matchingProducts: Product[]
     isDataAvailable: boolean = false
 
     constructor(
@@ -34,13 +33,15 @@ export class ProductsDetailComponent implements OnInit {
 
             // Get posiible configurations
             this.productService.getProducts().subscribe(data => {
-                this.options = this.filter.getConfigurations(data).Option1
+                this.options = this.filter.getConfigurations(data)
+                this.optionsObj = Object.keys(this.filter.getConfigurations(data))                
             })  
         }
 
     ngOnInit() { }
 
-    chooseOption(data) {
-        console.log(data);
-    }  
+    chooseOption(key, value) {
+        this.chosenOptions = this.filter.setCurrentConfig(this.chosenOptions, key, value)
+        console.log(this.chosenOptions);
+    }
 }

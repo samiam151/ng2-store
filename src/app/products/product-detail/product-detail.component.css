@@ -18,12 +18,14 @@ h1 {
 }
 
 .option {
+    display: inline-block;
     margin-top: 10px;
     padding: 5px 10px;
     border: 2px solid black;
     height: 30px;
     margin-right: 10px;
     border-radius: 3px;
+    
 }
 
 .option:hover {

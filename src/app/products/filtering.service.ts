@@ -45,6 +45,7 @@ export class ProductFilterService {
     private getUniqueConfigs(data: Object[]): any {
         let configs: Object = {};
         data.forEach((variant, index) => {
+            let obj = {}
             Object.keys(variant).forEach(key => {
                 if (!configs[key]){
                     configs[key] = []
@@ -53,5 +54,15 @@ export class ProductFilterService {
             })
         })
         return configs
+    }
+
+    public setCurrentConfig(currentOptions, key, value){
+        if (!currentOptions[key]) {
+           currentOptions[key] = value;
+        }
+        if (currentOptions[key] !== value) {
+            currentOptions[key] = value;
+        }
+        return currentOptions
     }
 }
