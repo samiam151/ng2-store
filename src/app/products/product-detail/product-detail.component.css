@@ -11,3 +11,24 @@ h1 {
 .product-detail-cont > div {
     width: 50%;
 }
+
+.options {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.option {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 2px solid black;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.option:hover {
+    background-color: orange;
+    border-color: tomato;
+    color: white;
+    cursor: pointer;
+}

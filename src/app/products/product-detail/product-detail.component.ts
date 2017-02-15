@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ProductGroup, Product } from '../product';
 import { ProductFilterService } from '../filtering.service';
+import { IOptions } from './IOptions';
 
 @Component({
     templateUrl: './product-detail.component.html',
@@ -13,7 +14,8 @@ export class ProductsDetailComponent implements OnInit {
     product: any
     all_products: any[]
     productKeys: any[]
-    configs: any[]
+    options: IOptions
+    chosenOptions: Object = {}
     matchingProducts: Product[]
     isDataAvailable: boolean = false
 
@@ -29,13 +31,16 @@ export class ProductsDetailComponent implements OnInit {
                 this.productKeys = Object.keys(data[0])
                 this.isDataAvailable = true;    
             }); 
+
+            // Get posiible configurations
+            this.productService.getProducts().subscribe(data => {
+                this.options = this.filter.getConfigurations(data).Option1
+            })  
         }
 
-    ngOnInit() {     
-        // Get posiible configurations
-        this.productService.getProducts().subscribe(data => {
-            this.configs = this.filter.getConfigurations(data)
-            console.log(this.configs);
-        })       
+    ngOnInit() { }
+
+    chooseOption(data) {
+        console.log(data);
     }  
 }

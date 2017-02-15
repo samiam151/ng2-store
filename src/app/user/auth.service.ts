@@ -3,9 +3,9 @@ import { IUser } from './user';
 
 @Injectable()
 export class AuthService {
-
     constructor() { }
     currentUser:IUser
+    
     loginUser(username: string, password: string){
         this.currentUser = {
             id: 1,

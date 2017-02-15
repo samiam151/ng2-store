@@ -18,27 +18,40 @@ export class ProductFilterService {
         private productService: ProductService) { }
 
     public getConfigurations(data){
-        let configs: any[] = [];      
-        configs = this.clean(data)
-        configs = this.getUniqueConfigs(data)
-        return configs
+        // let configs: any[] = [];      
+        let cleaned_data: any[] = this.clean(data)
+        let unique_configs = this.getUniqueConfigs(cleaned_data)
+        return unique_configs
     }
 
-    private clean(data: Object[]): Object[] {
-        let cleaned_data: any[]
-        cleaned_data = data.map(datum => {
+    private clean(data: Object[]): Object[] {   
+        // Strip unused options
+        let cleaned_data: any[] = data.map(datum => {
             let obj = {},
                 keys = Object.keys(datum)
-            keys.forEach(key => { if (datum[key]){ obj[key] = datum[key] } })
+            keys.forEach(key => { 
+                if (datum[key] && datum[key] !== null && datum[key] !== ""){
+                    obj[key] = datum[key]
+                }
+            })
             return obj
         })
-        return cleaned_data;
+
+        // Sort by SKU ascending
+        let sorted_data: Object[] = cleaned_data.sort((a,b) => a['SKU'] - b['SKU'] )
+        return sorted_data;
     }
 
-    private getUniqueConfigs(data: Object[]): Object[] {
-        data.forEach(variant => {
-            console.log(variant);
+    private getUniqueConfigs(data: Object[]): any {
+        let configs: Object = {};
+        data.forEach((variant, index) => {
+            Object.keys(variant).forEach(key => {
+                if (!configs[key]){
+                    configs[key] = []
+                }
+                configs[key].push(variant[key])
+            })
         })
-        return data
+        return configs
     }
 }

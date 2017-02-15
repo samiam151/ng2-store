@@ -8,7 +8,12 @@
             <p *ngFor="let key of productKeys">
                 <span *ngIf="product[key]">{{key}}: {{product[key]}}</span>
             </p>
+
+            <div class="options">
+                <a class="option" 
+                    *ngFor="let option of options"
+                    (click)="chooseOption(option)" >{{option}}</a>   
+            </div>
         </div>
     </div>
-
 </div>
