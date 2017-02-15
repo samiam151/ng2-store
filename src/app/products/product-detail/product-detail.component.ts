@@ -10,8 +10,6 @@ import { ProductFilterService } from '../filtering.service';
     styleUrls: ['./product-detail.component.css']
 })
 export class ProductsDetailComponent implements OnInit {
-    @Input() products: Object[]
-
     product: any
     all_products: any[]
     productKeys: any[]
@@ -23,19 +21,21 @@ export class ProductsDetailComponent implements OnInit {
         private productService: ProductService,
         private filter: ProductFilterService,
         private route:ActivatedRoute) {  
-            this.configs = this.filter.getConfigurations()
+            // Set product for detail page
+            let sku = this.route.snapshot.params['sku'];
+            this.productService.getProduct(sku).subscribe((data) => {
+                this.product = data[0];
+                this.product['imgUrl'] = "../assets/No_Image_Available.gif";
+                this.productKeys = Object.keys(data[0])
+                this.isDataAvailable = true;    
+            }); 
         }
 
     ngOnInit() {     
-        let sku = this.route.snapshot.params['sku'];
-        this.productService.getProduct(sku).subscribe((data) => {
-            this.product = data[0];
-            this.product['imgUrl'] = "../assets/No_Image_Available.gif";
-            // this.configs = this.filter.getConfigurations()
-            this.productKeys = Object.keys(data[0])
-            this.isDataAvailable = true;    
-            console.log(this.configs) 
-        }); 
-       
+        // Get posiible configurations
+        this.productService.getProducts().subscribe(data => {
+            this.configs = this.filter.getConfigurations(data)
+            console.log(this.configs);
+        })       
     }  
 }
