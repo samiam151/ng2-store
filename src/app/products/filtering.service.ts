@@ -57,11 +57,8 @@ export class ProductFilterService {
     }
 
     public setCurrentConfig(currentOptions, key, value){
-        if (!currentOptions[key]) {
+        if (!currentOptions[key] || currentOptions[key] !== value) {
            currentOptions[key] = value;
-        }
-        if (currentOptions[key] !== value) {
-            currentOptions[key] = value;
         }
         return currentOptions
     }

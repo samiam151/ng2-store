@@ -29,16 +29,16 @@ export class ProductsDetailComponent implements OnInit {
                 this.product['imgUrl'] = "../assets/No_Image_Available.gif";
                 this.productKeys = Object.keys(data[0])
                 this.isDataAvailable = true;    
-            }); 
-
-            // Get posiible configurations
-            this.productService.getProducts().subscribe(data => {
-                this.options = this.filter.getConfigurations(data)
-                this.optionsObj = Object.keys(this.filter.getConfigurations(data))                
-            })  
+            });            
         }
 
-    ngOnInit() { }
+    ngOnInit() {
+        // Get posiible configurations
+        this.productService.getProducts().subscribe(data => {
+            this.options = this.filter.getConfigurations(data)
+            this.optionsObj = Object.keys(this.filter.getConfigurations(data))                
+        }) 
+     }
 
     chooseOption(key, value, e) {
         this.chosenOptions = this.filter.setCurrentConfig(this.chosenOptions, key, value)
@@ -46,8 +46,7 @@ export class ProductsDetailComponent implements OnInit {
             this.product = data[0]
             this.product['imgUrl'] = "../assets/No_Image_Available.gif";
         })
-        this.toggleSelectedOption(e);
-        
+        this.toggleSelectedOption(e);        
     }
 
     toggleSelectedOption(e){

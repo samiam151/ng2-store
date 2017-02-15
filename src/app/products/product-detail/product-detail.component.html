@@ -3,12 +3,15 @@
     <div class="matchingProduct">
         <h1>Product Detail</h1>
         <div class="match" *ngIf="isDataAvailable">
+            
+            <!--Diplay product info-->
             <h3>{{product.SKU}}</h3>
             <img src="{{product.imgUrl}}" alt="no image">   
             <p *ngFor="let key of productKeys">
                 <span *ngIf="product[key]">{{key}}: {{product[key]}}</span>
             </p>
 
+            <!--Display options-->
             <div class="alloptions" *ngFor="let key of optionsObj">
                 <span *ngIf="key == 'Option1'">
                     <span *ngFor="let value of options[key]">
@@ -17,7 +20,7 @@
                 </span>
             </div>
 
-            
+            <!--Add to Cart button, if inventory-->
             <button class="button" *ngIf="product['Inventory'] > 0">Add To Cart</button>
             <button class="button" *ngIf="product['Inventory'] <= 0">Not Available</button>
         </div>
