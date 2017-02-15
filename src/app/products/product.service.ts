@@ -20,6 +20,10 @@ export class ProductService {
         return this.http.get(this.url).map(data => this.filterForProduct(data, sku));
     }
 
+    getProductFromConfigs(configs: Object){
+        return this.http.get(this.url).map(data => this.filterForConfig(data, configs));
+    }
+
     private parseData(res: Response){
         let body = res.json();
         return body.variants || {};
@@ -29,6 +33,19 @@ export class ProductService {
         let body = res.json();
         return body.variants.filter(datum => {
             return datum.SKU === sku;
+        }) || {};
+    }
+
+    private filterForConfig(res: Response, configs: Object){
+        let body = res.json();
+        return body.variants.filter(product => {
+            let chosenProduct: any = null
+            Object.keys(configs).forEach(option => {
+                if (product[option] === configs[option]){
+                    chosenProduct = product
+                }
+            })
+            return chosenProduct
         }) || {};
     }
 }

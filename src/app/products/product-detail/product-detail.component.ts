@@ -43,5 +43,11 @@ export class ProductsDetailComponent implements OnInit {
     chooseOption(key, value) {
         this.chosenOptions = this.filter.setCurrentConfig(this.chosenOptions, key, value)
         console.log(this.chosenOptions);
+
+        this.productService.getProductFromConfigs(this.chosenOptions).subscribe(data => {
+            this.product = data[0]
+            this.product['imgUrl'] = "../assets/No_Image_Available.gif";
+            console.log(this.product)
+        })
     }
 }
