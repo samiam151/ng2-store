@@ -44,6 +44,8 @@ export class ProductService {
         let body = res.json();
         return body.variants.filter(product => {
             let chosenProduct: any = null
+
+            
             Object.keys(configs).forEach(option => {
                 if (product[option] === configs[option]){
                     chosenProduct = product
