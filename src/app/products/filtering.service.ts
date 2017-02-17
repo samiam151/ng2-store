@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductFilterService {
     configs: any[]
+    config: number
 
     constructor(
         private http: Http,
