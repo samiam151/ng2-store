@@ -1,0 +1,11 @@
+<h1>Shopping Cart</h1>
+
+<div class="showCart">
+    <p>Items in your Cart:</p>
+    <ul class="cart-list">
+        <li class="cart-item" *ngFor="let item of cartItems">
+            <h4>SKU: {{item.SKU}}</h4>
+            <p>Inventory Left: {{item.Inventory}}</p>
+        </li>
+    </ul>
+</div>

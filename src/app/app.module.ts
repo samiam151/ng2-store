@@ -1,17 +1,23 @@
+// Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+// Components
 import { AddProductComponent } from './products/add-product/addProduct.component';
 import { AppComponent } from './app.component';
 import { Error404Component } from './errors/404.component';
 import { NavComponent } from './nav/nav.component';
-import { AuthService } from './user/auth.service';
 import { LoginComponent } from './user/login.component';
+import { ShoppingCartComponent } from './shoppingcart/shoppingcart.component';
+
+// Services
+import { AuthService } from './user/auth.service';
 import { ProductFilterService } from './products/filtering.service';
 import { ShoppingCartService } from './shoppingcart/shoppingcart.service';
+
 
 import { 
   ProductsComponent,
@@ -33,7 +39,8 @@ import { appRoutes } from './routes';
     ProductsDetailComponent,
     AddProductComponent,
     Error404Component,
-    LoginComponent
+    LoginComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

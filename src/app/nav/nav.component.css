@@ -47,6 +47,10 @@ i.fa.fa-shopping-cart {
     margin-right: 25px;
 }
 
+i.fa.fa-shopping-cart:hover {
+    color: tomato;
+}
+
 .nav_li {
     display: flex;
     align-items: center;

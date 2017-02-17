@@ -1,8 +1,8 @@
 <nav class='nav'>
   <ul class="nav_ul left">
     <li class="nav_li"><a [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Products</a></li>
-    <li class="nav_li"><a [routerLink]="['products/add']" routerLinkActive="active">Add Product</a></li>
-    <li class="nav_li"><a>Contact</a></li>
+    <!--<li class="nav_li"><a [routerLink]="['products/add']" routerLinkActive="active">Add Product</a></li>
+    <li class="nav_li"><a>Contact</a></li>-->
     
   </ul>
 
@@ -10,8 +10,10 @@
     <li class="nav_li">
       <!--Shooping Cart icon-->
       <div class="cart">
-        <i class="fa fa-shopping-cart"></i>
-        <span class="cart-number" *ngIf="cartLength">{{cartLength}}</span>
+        <a [routerLink]="['/cart']">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-number" *ngIf="cartLength">{{cartLength}}</span>
+        </a>
       </div>
       
       <!--Login Name or Link-->
