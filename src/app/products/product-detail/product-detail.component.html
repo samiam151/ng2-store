@@ -14,22 +14,21 @@
             <!--Display options-->
             <div class="alloptions" *ngFor="let key of optionsObj">
                 <span *ngIf="key == 'Option1'">
-                    
-                    <h3>{{key}}</h3>
+
+                    <h3 class="option-title">{{key}}</h3>
                     <span *ngFor="let value of options[key]">
                         <a class="option" (click)="chooseOption(key, value, $event)">{{value}}</a>   
                     </span>
                     
                 </span>
 
-                <!--<span *ngIf="key == 'Option2'">
-                    
-                    <h3>{{key}}</h3>
-                    <span *ngFor="let value of options[key]">
-                        <a class="option" (click)="chooseOption(key, value, $event)">{{value}}</a>   
-                    </span>
-                    
-                </span>-->
+                <span *ngIf="key == 'Option2'">
+                    <h3 class="option-title">{{key}}</h3>
+                    <select name="option2" id="option2" (change)="chooseOption(key, null, $event)">
+                        <option *ngFor="let value of options[key]" value="{{value}}">{{value}}</option>
+                    </select>
+                </span>
+
             </div>
 
             <!--Add to Cart button, if inventory-->
