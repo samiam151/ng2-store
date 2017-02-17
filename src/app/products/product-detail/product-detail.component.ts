@@ -46,7 +46,9 @@ export class ProductsDetailComponent implements OnInit {
             this.product = data[0]
             this.product['imgUrl'] = "../assets/No_Image_Available.gif";
         })
-        this.toggleSelectedOption(e);        
+        this.toggleSelectedOption(e);   
+
+        console.log(this.chosenOptions)     
     }
 
     toggleSelectedOption(e){

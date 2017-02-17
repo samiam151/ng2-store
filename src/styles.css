@@ -31,6 +31,13 @@ a:hover {
     border: 2px solid #ff3814;
 
 }
+
+.button.disabled {
+    background-color: lightgrey;
+    color: dimgrey;
+    border: 2px solid dimgray;
+}
+
 .button:hover {
     color: #ddd;
     cursor: pointer;

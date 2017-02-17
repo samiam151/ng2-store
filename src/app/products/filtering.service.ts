@@ -9,8 +9,6 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductFilterService {
-    // This should return an array of 
-
     configs: any[]
 
     constructor(
@@ -22,6 +20,13 @@ export class ProductFilterService {
         let cleaned_data: any[] = this.clean(data)
         let unique_configs = this.getUniqueConfigs(cleaned_data)
         return unique_configs
+    }
+
+    public setCurrentConfig(currentOptions, key, value){
+        if (!currentOptions[key] || currentOptions[key] !== value) {
+           currentOptions[key] = value;
+        }
+        return currentOptions
     }
 
     private clean(data: Object[]): Object[] {   
@@ -54,12 +59,5 @@ export class ProductFilterService {
             })
         })
         return configs
-    }
-
-    public setCurrentConfig(currentOptions, key, value){
-        if (!currentOptions[key] || currentOptions[key] !== value) {
-           currentOptions[key] = value;
-        }
-        return currentOptions
     }
 }

@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
-    private url = "../../data.json"
+    private url = "../../assets/data.json"
     constructor(private http: Http) {}
 
     getProducts(): Observable<any> {    
