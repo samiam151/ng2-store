@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthService } from '../user/auth.service';
+import { ShoppingCartService } from '../shoppingcart/shoppingcart.service';
+import { Subscription } from 'rxjs/RX';
 
 @Component({
   selector: 'nav-bar',
@@ -7,7 +9,17 @@ import { AuthService } from '../user/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
-  constructor(private auth:AuthService){
-    this.auth = auth;
-  } 
+  cartLength: any
+  subscription: Subscription
+
+  constructor(
+    private auth: AuthService,
+    private cart: ShoppingCartService){
+      this.auth = auth;
+      
+      this.subscription = this.cart.getCartLength().subscribe(data => {
+        this.cartLength = data
+      })
+  }
+
 }

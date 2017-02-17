@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subject, Observable } from 'rxjs/RX';
 
 import { ProductGroup, Product } from '../product';
 import { ProductFilterService } from '../filtering.service';
 import { IOptions } from './IOptions';
+import { ShoppingCartService } from '../../shoppingcart/shoppingcart.service';
 
 @Component({
     templateUrl: './product-detail.component.html',
@@ -21,6 +23,7 @@ export class ProductsDetailComponent implements OnInit {
     constructor(
         private productService: ProductService,
         private filter: ProductFilterService,
+        private cart: ShoppingCartService,
         private route: ActivatedRoute) {  
             // Set product for detail page
             let sku = this.route.snapshot.params['sku'];
@@ -61,5 +64,11 @@ export class ProductsDetailComponent implements OnInit {
             document.querySelector('.option.selected').classList.remove('selected')
         }
         e.target.classList.add('selected')
+    }
+
+    public addToCart(product): void {
+        if (product) {
+            this.cart.addToCart(product);
+        }
     }
 }
