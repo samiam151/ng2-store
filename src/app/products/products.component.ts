@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
     }
 
   ngOnInit () {
-    // this.products = this.route.snapshot.data['prods']
     this.productService.getProducts().subscribe((data: Object[]) => {
       this.products = data.map(product => {
         product['imgUrl'] = "../assets/No_Image_Available.gif";

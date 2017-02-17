@@ -21,7 +21,7 @@ export class ProductsDetailComponent implements OnInit {
     constructor(
         private productService: ProductService,
         private filter: ProductFilterService,
-        private route:ActivatedRoute) {  
+        private route: ActivatedRoute) {  
             // Set product for detail page
             let sku = this.route.snapshot.params['sku'];
             this.productService.getProduct(sku).subscribe((data) => {

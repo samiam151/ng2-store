@@ -16,13 +16,13 @@ export class ProductService {
         let options = new RequestOptions({ headers: headers });    
         return this.http.get(this.url, options).map(data => this.parseData(data));
     }
-    getProduct(sku: any){
+    getProduct(sku: any): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });    
         return this.http.get(this.url).map(data => this.filterForProduct(data, sku));
     }
 
-    getProductFromConfigs(configs: Object){
+    getProductFromConfigs(configs: Object): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });    
         return this.http.get(this.url).map(data => this.filterForConfig(data, configs));
@@ -41,11 +41,8 @@ export class ProductService {
     }
 
     private filterForConfig(res: Response, configs: Object){
-        let body = res.json();
-        return body.variants.filter(product => {
-            let chosenProduct: any = null
-
-            
+        return res.json().variants.filter(product => {
+            let chosenProduct: any = null          
             Object.keys(configs).forEach(option => {
                 if (product[option] === configs[option]){
                     chosenProduct = product
