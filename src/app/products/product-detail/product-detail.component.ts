@@ -40,7 +40,7 @@ export class ProductsDetailComponent implements OnInit {
         }) 
      }
 
-    chooseOption(key, value, e) {
+    public chooseOption(key, value, e): void {
         if (value){
             this.chosenOptions = this.filter.setCurrentConfig(this.chosenOptions, key, value)
         } else {
@@ -56,7 +56,7 @@ export class ProductsDetailComponent implements OnInit {
         console.log(this.chosenOptions)     
     }
 
-    toggleSelectedOption(e){
+    public toggleSelectedOption(e): void {
         if (document.querySelector('.option.selected')) {
             document.querySelector('.option.selected').classList.remove('selected')
         }

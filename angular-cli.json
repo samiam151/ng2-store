@@ -22,7 +22,8 @@
         "../node_modules/toastr/build/toastr.min.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/toastr/build/toastr.min.css"
       ],
       "environments": {
         "source": "environments/environment.ts",
@@ -66,11 +67,5 @@
       "pipe": true,
       "service": true
     }
-  },
-  "styles": [
-    
-  ],
-  "scripts": [
-    
-  ]
+  }
 }

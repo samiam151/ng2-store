@@ -4,38 +4,47 @@
         <h1>Product Detail</h1>
         <div class="match" *ngIf="isDataAvailable">
             
-            <!--Diplay product info-->
-            <h3>{{product.SKU}}</h3>
-            <img src="{{product.imgUrl}}" alt="no image">   
-            <p *ngFor="let key of productKeys">
-                <span *ngIf="product[key]">{{key}}: {{product[key]}}</span>
-            </p>
+            <div class="left">
+                <!--Diplay product info-->
+                <h3>{{product.SKU}}</h3>
+                <img src="{{product.imgUrl}}" alt="no image" />   
+                <!--Add to Cart button, if inventory-->
+                <button class="button" *ngIf="product['Inventory'] > 2">Add To Cart</button>
+                <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>
 
-            <!--Display options-->
-            <div class="alloptions" *ngFor="let key of optionsObj">
-                <span *ngIf="key == 'Option1'">
-
-                    <h3 class="option-title">{{key}}</h3>
-                    <span *ngFor="let value of options[key]">
-                        <a class="option" (click)="chooseOption(key, value, $event)">{{value}}</a>   
-                    </span>
-                    
-                </span>
-
-                <span *ngIf="key == 'Option2'">
-                    <h3 class="option-title">{{key}}</h3>
-                    <select name="option2" id="option2" (change)="chooseOption(key, null, $event)">
-                        <option *ngFor="let value of options[key]" value="{{value}}">{{value}}</option>
-                    </select>
-                </span>
-
+                
             </div>
+            
+            <div class="right">
+                
+                <!--Display options-->
+                <div class="alloptions" *ngFor="let key of optionsObj">
+                    <div *ngIf="key == 'Option1'">
+                        <h3 class="option-title">{{key}}</h3>
+                        <span *ngFor="let value of options[key]">
+                            <a class="option" (click)="chooseOption(key, value, $event)">{{value}}</a>   
+                        </span>                     
+                    </div>
+                    <div *ngIf="key == 'Option2'">
+                        <h3 class="option-title">{{key}}</h3>
+                        <select name="option2" id="option2" (change)="chooseOption(key, null, $event)">
+                            <option *ngFor="let value of options[key]" value="{{value}}">{{value}}</option>
+                        </select>
+                    </div>
+                </div>
 
-            <!--Add to Cart button, if inventory-->
-            <button class="button" *ngIf="product['Inventory'] > 2">Add To Cart</button>
-            <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>
+                <!--Display product info-->
+                <div class="product-info">
+                    <div class="product-info-block" *ngFor="let key of productKeys">
+                        <span *ngIf="product[key]">
+                            <!--<h4 class="option-title">{{key}}</h4>-->
+                            <h4>{{key}}: </h4><span>{{product[key]}}</span>
+                        </span>
+                    </div>
+                </div>
+                
+            </div>                     
         </div>
-
-
+        
     </div>
 </div>

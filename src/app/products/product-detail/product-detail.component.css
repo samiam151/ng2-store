@@ -2,19 +2,30 @@ h1 {
     margin-bottom: 25px;
 }
 
-.product-detail-cont {
+.match {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
 }
 
-.product-detail-cont > div {
+.match > .left,
+.match > .right {
     width: 50%;
 }
 
 .options {
     display: flex;
     flex-flow: row wrap;
+}
+
+.product-info .product-info-block {
+    margin-top: 20px;
+}
+.product-info .product-info-block h4 {
+    display: inline-block;
+}
+
+
+.button {
+    display: block;
 }
 
 .option {
