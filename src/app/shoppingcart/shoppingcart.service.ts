@@ -27,13 +27,19 @@ export class ShoppingCartService {
     public addToCart(item: any): void {
         this.cart.push(item)
         this.sendCartLength()
+
         console.log(`${item.SKU} has been added...`)
-        console.log(this.cart)
+        console.log('cart: ', this.cart)
     }
 
     public removeFromCart(item: any): void {
-        // this.cart.pop(item);
-        console.log(`${item.SKU} has been removed...`)
+        for (let i = 0; i < this.cart.length; i++) {
+            if (this.cart[i]['SKU'] === item['SKU']){
+                console.log('found')
+                this.cart.splice(i, 1);
+            }     
+        }
+        this.sendCartLength()
     }
 
     public emptyCart(): void {

@@ -1,11 +1,19 @@
 <h1>Shopping Cart</h1>
 
-<div class="showCart">
+<div *ngIf="this.cartItems.length" class="showCart">
     <p>Items in your Cart:</p>
     <ul class="cart-list">
         <li class="cart-item" *ngFor="let item of cartItems">
             <h4>SKU: {{item.SKU}}</h4>
             <p>Inventory Left: {{item.Inventory}}</p>
+
+            <a [routerLink]="['/products/' + item.SKU]">Details</a>
+            <button (click)="removeItem(item)">Remove</button>
         </li>
     </ul>
+</div>
+<p *ngIf="!this.cartItems.length">You have no items in your cart. Go shopping!</p>
+
+<div class="options">
+    <button (click)="emptyCart()">Empty Cart</button>
 </div>

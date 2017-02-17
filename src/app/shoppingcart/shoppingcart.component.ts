@@ -15,5 +15,11 @@ export class ShoppingCartComponent implements OnInit {
 
     ngOnInit() { }
 
+    public emptyCart(): void {
+        this.cartService.emptyCart()
+    }
 
+    public removeItem(product: Object): void {
+        this.cartService.removeFromCart(product)
+    }
 }
