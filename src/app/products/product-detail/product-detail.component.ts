@@ -1,3 +1,5 @@
+///<reference path="../../../../node_modules/@types/jquery/index.d.ts" />
+
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +9,7 @@ import { ProductGroup, Product } from '../product';
 import { ProductFilterService } from '../filtering.service';
 import { IOptions } from './IOptions';
 import { ShoppingCartService } from '../../shoppingcart/shoppingcart.service';
+
 
 @Component({
     templateUrl: './product-detail.component.html',
@@ -39,7 +42,8 @@ export class ProductsDetailComponent implements OnInit {
         // Get posiible configurations
         this.productService.getProducts().subscribe(data => {
             this.options = this.filter.getConfigurations(data)
-            this.optionsObj = Object.keys(this.filter.getConfigurations(data))                
+            this.optionsObj = Object.keys(this.filter.getConfigurations(data))  
+            console.log(this.filter.transformData(data))
         }) 
      }
 

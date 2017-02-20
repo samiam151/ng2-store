@@ -1,4 +1,4 @@
-Derivefilters() {
+function Derivefilters() {
     var transformedData = {};
     this.products.map(function (product, index) {
         /*ITERATE THORUGH PRODUCTS*/
@@ -22,7 +22,6 @@ Derivefilters() {
                 }
             }
         })
-
     })
 
     var newData = [];
