@@ -59,14 +59,13 @@ export class ProductFilterService {
                 configs[key].push(variant[key])
             })
         })
-        console.log(configs)
         return configs
     }
 
     public transformData(products: Object[]) {
         var transformedData = {},
             newData = [];
-            
+
         products.map(function (product, index) {
             /*ITERATE THORUGH PRODUCTS*/
             /* ITERATE THROUGH OPTIONS */

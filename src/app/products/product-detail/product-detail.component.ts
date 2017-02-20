@@ -17,11 +17,13 @@ import { ShoppingCartService } from '../../shoppingcart/shoppingcart.service';
 })
 export class ProductsDetailComponent implements OnInit {
     product: any
+    products: Object[]
     productKeys: any[]
     options: IOptions
     optionsObj: any[]
     chosenOptions: Object = {}
     isDataAvailable: boolean = false
+    showAll: boolean = false
 
     constructor(
         private productService: ProductService,
@@ -32,7 +34,7 @@ export class ProductsDetailComponent implements OnInit {
             let sku = this.route.snapshot.params['sku'];
             this.productService.getProduct(sku).subscribe((data) => {
                 this.product = data[0];
-                this.product['imgUrl'] = "../assets/No_Image_Available.gif";
+                this.product['imgUrl'] = "../assets/rug.jpg";
                 this.productKeys = Object.keys(data[0])
                 this.isDataAvailable = true;    
             });            
@@ -43,7 +45,8 @@ export class ProductsDetailComponent implements OnInit {
         this.productService.getProducts().subscribe(data => {
             this.options = this.filter.getConfigurations(data)
             this.optionsObj = Object.keys(this.filter.getConfigurations(data))  
-            console.log(this.filter.transformData(data))
+            // console.log(this.filter.transformData(data))
+            // console.log(this.options)
         }) 
      }
 
@@ -56,7 +59,7 @@ export class ProductsDetailComponent implements OnInit {
         
         this.productService.getProductFromConfigs(this.chosenOptions).subscribe(data => {
             this.product = data[0]
-            this.product['imgUrl'] = "../assets/No_Image_Available.gif";
+            this.product['imgUrl'] = "../assets/rug.jpg";
         })
 
         this.toggleSelectedOption(e);   
@@ -74,5 +77,16 @@ export class ProductsDetailComponent implements OnInit {
         if (product) {
             this.cart.addToCart(product);
         }
+    }
+    public toggleAllProducts() {
+        if(!this.products){
+            this.productService.getProducts().subscribe(data => {
+                this.products = data.map(product => {
+                    product['imgUrl'] = "../assets/No_Image_Available.gif";
+                    return product;
+                });
+            })
+        }
+        this.showAll = !this.showAll
     }
 }

@@ -15,6 +15,12 @@
             
             <div class="right">
                 
+                <!--Show all rugs-->
+                <a class="button shop_all" (click)="toggleAllProducts()">
+                    <span *ngIf=!showAll>Shop All Sizes</span>
+                    <span *ngIf=showAll>Shop Size Group</span>
+                </a>
+
                 <!--Display options-->
                 <div class="alloptions" *ngFor="let key of optionsObj">
                     <div *ngIf="key == 'Option1'">
@@ -40,9 +46,33 @@
                         </span>
                     </div>
                 </div>
+
+                
                 
             </div>                     
         </div>
         
     </div>
+</div>
+
+<!--When showing all products...-->
+<div class="allproducts" *ngIf="showAll">
+    <table>
+        <thead>
+            <tr>    
+            <th>SKU</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Inventory</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.SKU}}</td>
+                <td>{{product['Option1']}}</td>
+                <td>{{product['Option2']}}</td>
+                <td>{{product['Inventory']}}</td>
+            </tr>
+        </tbody>  
+    </table>
 </div>
