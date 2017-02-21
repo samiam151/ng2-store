@@ -91,6 +91,18 @@ th, td {
     padding: 5px 10px;
 }
 
+td input[type='number']{
+    width: 46px;
+    margin-right: 10px;
+    padding: 5px 5px;
+}
+
+tbody td:last-of-type {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
 tr:nth-of-type(2n){
     background-color: #eee;
 }

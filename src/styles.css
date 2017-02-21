@@ -11,8 +11,9 @@
     font-family: Arial; 
 }
 
-td {
+td, th {
     text-align: left;
+    padding: 2px 5px;
 }
 
 a:hover {

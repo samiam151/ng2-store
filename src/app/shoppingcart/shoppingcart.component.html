@@ -4,8 +4,9 @@
     <p>Items in your Cart:</p>
     <ul class="cart-list">
         <li class="cart-item" *ngFor="let item of cartItems">
-            <h4>SKU: {{item.SKU}}</h4>
-            <p>Inventory Left: {{item.Inventory}}</p>
+            <h4>SKU: {{item.product.SKU}}</h4>
+            <p>Inventory Left: {{item.product.Inventory}}</p>
+            <p>Qty: {{item.quantity}}</p>
 
             <a [routerLink]="['/products/' + item.SKU]">Details</a>
             <button (click)="removeItem(item)">Remove</button>

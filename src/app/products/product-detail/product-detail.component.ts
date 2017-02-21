@@ -34,7 +34,7 @@ export class ProductsDetailComponent implements OnInit {
             let sku = this.route.snapshot.params['sku'];
             this.productService.getProduct(sku).subscribe((data) => {
                 this.product = data[0];
-                this.product['imgUrl'] = "../assets/rug.jpg";
+                this.product['imgUrl'] = "../assets/rug.png";
                 this.productKeys = Object.keys(data[0])
                 this.isDataAvailable = true;    
             });            
@@ -59,7 +59,7 @@ export class ProductsDetailComponent implements OnInit {
         
         this.productService.getProductFromConfigs(this.chosenOptions).subscribe(data => {
             this.product = data[0]
-            this.product['imgUrl'] = "../assets/rug.jpg";
+            this.product['imgUrl'] = "../assets/rug.png";
         })
 
         this.toggleSelectedOption(e);   
@@ -73,9 +73,13 @@ export class ProductsDetailComponent implements OnInit {
         e.target.classList.add('selected')
     }
 
-    public addToCart(product): void {
+    public addToCart(product, qty): void {
         if (product) {
-            this.cart.addToCart(product);
+            this.cart.addToCart({
+                product: product,
+                quantity: qty
+            });
+            product.Inventory -= qty
         }
     }
     public toggleAllProducts() {
@@ -88,5 +92,11 @@ export class ProductsDetailComponent implements OnInit {
             })
         }
         this.showAll = !this.showAll
+    }
+
+    public orderBy(term: string): void {
+        this.products = this.products.sort((a,b) => {
+            return b[term] - a[term];
+        })
     }
 }

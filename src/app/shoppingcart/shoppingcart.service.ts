@@ -16,7 +16,12 @@ export class ShoppingCartService {
     }
 
     public sendCartLength(){
-        this.subject.next(this.cart.length)
+        let len = this.cart.reduce((a,b) => {
+            console.log(a,b)
+            return a['quantity'] + b['quantity']
+        })
+        console.log(len)
+        this.subject.next(len)
     }
 
     public getCartLength() {
@@ -24,11 +29,11 @@ export class ShoppingCartService {
         return this.subject.asObservable()
     }
 
-    public addToCart(item: any): void {
+    public addToCart(item: Object): void {
         this.cart.push(item)
         this.sendCartLength()
 
-        console.log(`${item.SKU} has been added...`)
+        console.log(`${item['product']['SKU']} has been added...`)
         console.log('cart: ', this.cart)
     }
 

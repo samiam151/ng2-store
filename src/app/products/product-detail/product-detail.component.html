@@ -9,7 +9,7 @@
                 <h3>{{product.SKU}}</h3>
                 <img src="{{product.imgUrl}}" alt="no image" />   
                 <!--Add to Cart button, if inventory-->
-                <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product)">Add To Cart</button>
+                <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product, 1)">Add To Cart</button>
                 <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>         
             </div>
             
@@ -58,21 +58,22 @@
     <table>
         <thead>
             <tr>    
-                <th>SKU</th>
-                <th>Option 1</th>
-                <th>Option 2</th>
-                <th>Inventory</th>
+                <th (click)="orderBy('SKU')">SKU</th>
+                <th (click)="orderBy('Option1')">Option 1</th>
+                <th (click)="orderBy('Option2')">Option 2</th>
+                <th (click)="orderBy('Inventory')">Inventory</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products">
+            <tr *ngFor="let product of products; let index = index; trackBy:index;">
                 <td>{{product.SKU}}</td>
                 <td>{{product['Option1']}}</td>
                 <td>{{product['Option2']}}</td>
                 <td>{{product['Inventory']}}</td>
                 <td>
-                    <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product)">Add To Cart</button>
+                    <input type="number" [(ngModel)]="qty">
+                    <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product, qty)">Add To Cart</button>
                     <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>
                 </td>
             </tr>
