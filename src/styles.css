@@ -11,6 +11,10 @@
     font-family: Arial; 
 }
 
+td {
+    text-align: left;
+}
+
 a:hover {
     color: tomato;
 }

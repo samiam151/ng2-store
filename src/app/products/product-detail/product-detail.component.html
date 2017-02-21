@@ -58,10 +58,11 @@
     <table>
         <thead>
             <tr>    
-            <th>SKU</th>
+                <th>SKU</th>
                 <th>Option 1</th>
                 <th>Option 2</th>
                 <th>Inventory</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -70,6 +71,10 @@
                 <td>{{product['Option1']}}</td>
                 <td>{{product['Option2']}}</td>
                 <td>{{product['Inventory']}}</td>
+                <td>
+                    <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product)">Add To Cart</button>
+                    <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>
+                </td>
             </tr>
         </tbody>  
     </table>

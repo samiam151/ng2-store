@@ -1,0 +1,29 @@
+<h1>Checkout</h1>
+
+<p>Items in your Cart:</p>
+<table>
+    <thead>
+        <tr>
+            <th>SKU</th>
+            <th>Inventory</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of cart">
+            <td>{{item.SKU}}</td>
+            <td>{{item.Inventory}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!--<ul class="cart-list">
+    <li class="cart-item" *ngFor="let item of cart">
+        <h4>SKU: {{item.SKU}}</h4>
+        <p>Inventory Left: {{item.Inventory}}</p>
+
+        <a [routerLink]="['/products/' + item.SKU]">Details</a>
+        <button (click)="removeItem(item)">Remove</button>
+    </li>
+</ul>-->
+
+<a [routerLink]="['/cart']" class="button">Edit Order</a>

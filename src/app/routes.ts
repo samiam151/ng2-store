@@ -7,10 +7,12 @@ import { ProductRouteActivator } from './products/product-route-activator.servic
 import { ProductResolverService } from './products/product-resolver.service';
 import { LoginComponent } from './user/login.component';
 import { ShoppingCartComponent } from './shoppingcart/shoppingcart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 export const appRoutes:Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'cart', component: ShoppingCartComponent },
+    { path: 'checkout', component: CheckoutComponent },
     { path: 'products/add', component: AddProductComponent },
     { path: 'products', component: ProductsComponent, resolve: {products:ProductResolverService}},
     // { path: 'products', component: ProductsComponent },

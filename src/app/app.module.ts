@@ -12,11 +12,13 @@ import { Error404Component } from './errors/404.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './user/login.component';
 import { ShoppingCartComponent } from './shoppingcart/shoppingcart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 // Services
 import { AuthService } from './user/auth.service';
 import { ProductFilterService } from './products/filtering.service';
 import { ShoppingCartService } from './shoppingcart/shoppingcart.service';
+import { CheckoutService } from './checkout/checkout.service';
 
 
 import { 
@@ -40,7 +42,8 @@ import { appRoutes } from './routes';
     AddProductComponent,
     Error404Component,
     LoginComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { appRoutes } from './routes';
     ProductRouteActivator,
     AuthService,
     ProductFilterService,
-    ShoppingCartService
+    ShoppingCartService,
+    CheckoutService
   ],
   bootstrap: [AppComponent]
 })

@@ -17,3 +17,5 @@
 <div class="options">
     <button (click)="emptyCart()">Empty Cart</button>
 </div>
+
+<a *ngIf="cartItems.length > 0" [routerLink]="['/checkout']" class="button">Checkout</a>
