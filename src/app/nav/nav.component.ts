@@ -18,6 +18,7 @@ export class NavComponent {
       this.auth = auth;
       
       this.subscription = this.cart.getCartLength().subscribe(data => {
+        console.log("from nav:", data)
         this.cartLength = data
       })
   }

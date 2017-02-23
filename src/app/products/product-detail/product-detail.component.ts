@@ -49,6 +49,10 @@ export class ProductsDetailComponent implements OnInit {
             // console.log(this.options)
         }) 
      }
+    
+    public trackByIndex(index: number): any {
+        return index;
+    }
 
     public chooseOption(key, value, e): void {
         if (value){
@@ -73,7 +77,7 @@ export class ProductsDetailComponent implements OnInit {
         e.target.classList.add('selected')
     }
 
-    public addToCart(product, qty): void {
+    public addToCart(product, qty=1): void {
         if (product) {
             this.cart.addToCart({
                 product: product,
