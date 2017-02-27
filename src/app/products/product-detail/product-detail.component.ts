@@ -90,7 +90,7 @@ export class ProductsDetailComponent implements OnInit {
         if(!this.products){
             this.productService.getProducts().subscribe(data => {
                 this.products = data.map(product => {
-                    product['imgUrl'] = "../assets/No_Image_Available.gif";
+                    product['imgUrl'] = "../assets/rug.png";
                     return product;
                 });
             })
