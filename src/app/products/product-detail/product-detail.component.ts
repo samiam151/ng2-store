@@ -67,7 +67,7 @@ export class ProductsDetailComponent implements OnInit {
         })
 
         this.toggleSelectedOption(e);   
-        console.log(this.chosenOptions)     
+        // console.log(this.chosenOptions)     
     }
 
     public toggleSelectedOption(e): void {
