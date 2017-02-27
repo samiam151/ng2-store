@@ -9,7 +9,7 @@ import { Http, Response, Headers, RequestOptions } from "@angular/http";
 export class ShoppingCartService {
 
     private cart: Object[] = []
-    private subject = new Subject<any>();
+    private subject = new Subject<any>();s
 
     public getCart(): Object[] {
         return this.cart;
@@ -27,7 +27,7 @@ export class ShoppingCartService {
         // }
         len = this.cart.length
         
-        console.log(len)
+        // console.log(len)
         this.subject.next(len)
     }
 
@@ -40,14 +40,14 @@ export class ShoppingCartService {
         this.cart.push(item)
         this.sendCartLength()
 
-        console.log(`${item['product']['SKU']} has been added...`)
-        console.log('cart: ', this.cart)
+        // console.log(`${item['product']['SKU']} has been added...`)
+        // console.log('cart: ', this.cart)
     }
 
     public removeFromCart(item: any): void {
         for (let i = 0; i < this.cart.length; i++) {
             if (this.cart[i]['SKU'] === item['SKU']){
-                console.log('found')
+                // console.log('found')
                 this.cart.splice(i, 1);
             }     
         }

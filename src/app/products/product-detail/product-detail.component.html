@@ -9,8 +9,8 @@
                 <h3>{{product.SKU}}</h3>
                 <img src="{{product.imgUrl}}" alt="no image" />   
                 <!--Add to Cart button, if inventory-->
-                <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product, 1)">Add To Cart</button>
-                <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>         
+                <button class="button" *ngIf="product['Inventory'] > 1" (click)="addToCart(product, 1)">Add To Cart</button>
+                <button class="button disabled" disabled *ngIf="product['Inventory'] <= 1">Not Available</button>         
             </div>
             
             <div class="right">
@@ -73,8 +73,8 @@
                 <td>{{product['Inventory']}}</td>
                 <td>
                     <input type="number" [(ngModel)]="qty">
-                    <button class="button" *ngIf="product['Inventory'] > 2" (click)="addToCart(product, qty)">Add To Cart</button>
-                    <button class="button disabled" disabled *ngIf="product['Inventory'] <= 2">Not Available</button>
+                    <button class="button" *ngIf="product['Inventory'] > 1" (click)="addToCart(product, qty)">Add To Cart</button>
+                    <button class="button disabled" disabled *ngIf="product['Inventory'] <= 1">Not Available</button>
                 </td>
             </tr>
         </tbody>  

@@ -28,6 +28,6 @@ export class ProductsComponent implements OnInit {
   }
 
   handleProductClicked(data){
-    console.log(`${data.id}. ${data.name}: \$${data.price}`);
+    // console.log(`${data.id}. ${data.name}: \$${data.price}`);
   }
 }
