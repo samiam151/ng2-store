@@ -58,15 +58,15 @@
     <table>
         <thead>
             <tr>    
-                <th (click)="orderBy('SKU')">SKU</th>
-                <th (click)="orderBy('Option1')">Option 1</th>
-                <th (click)="orderBy('Option2')">Option 2</th>
-                <th (click)="orderBy('Inventory')">Inventory</th>
+                <th (click)="orderBy('SKU', $event.target)">SKU</th>
+                <th (click)="orderBy('Option1', $event.target)">Option 1</th>
+                <th (click)="orderBy('Option2', $event.target)">Option 2</th>
+                <th (click)="orderBy('Inventory', $event.target)">Inventory</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products; let index = index">
+            <tr *ngFor="let product of products; let index = index; trackBy: trackByIndex ">
                 <td>{{product.SKU}}</td>
                 <td>{{product['Option1']}}</td>
                 <td>{{product['Option2']}}</td>

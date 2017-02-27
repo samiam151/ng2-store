@@ -45,12 +45,10 @@ export class ProductsDetailComponent implements OnInit {
         this.productService.getProducts().subscribe(data => {
             this.options = this.filter.getConfigurations(data)
             this.optionsObj = Object.keys(this.filter.getConfigurations(data))  
-            // console.log(this.filter.transformData(data))
-            // console.log(this.options)
         }) 
      }
     
-    public trackByIndex(index: number): any {
+    public trackByIndex(index: number, value: number): any {
         return index;
     }
 
@@ -98,9 +96,27 @@ export class ProductsDetailComponent implements OnInit {
         this.showAll = !this.showAll
     }
 
-    public orderBy(term: string): void {
-        this.products = this.products.sort((a,b) => {
-            return b[term] - a[term];
-        })
+    public orderBy(term: string, e: HTMLElement): void {
+        if (e.dataset['sort'] && e.dataset['sort'] === 'desc'){
+            this.products = this.products.sort((a,b) => {
+                e.dataset['sort'] = "asc";
+                if(typeof a[term] === 'string'){
+                    if(a[term].toUpperCase() > b[term].toUpperCase()){ return -1 }
+                    if(a[term].toUpperCase() < b[term].toUpperCase()){ return 1 }
+                    return 0
+                }
+                return a[term] - b[term];
+            })
+        } else {
+            this.products = this.products.sort((a,b) => {
+                e.dataset['sort'] = "desc";
+                if(typeof a[term] === 'string'){
+                    if(a[term].toUpperCase() < b[term].toUpperCase()){ return -1 }
+                    if(a[term].toUpperCase() > b[term].toUpperCase()){ return 1 }
+                    return 0
+                }
+                return b[term] - a[term];
+            })
+        }        
     }
 }
