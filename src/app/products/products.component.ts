@@ -21,13 +21,13 @@ export class ProductsComponent implements OnInit {
   ngOnInit () {
     this.productService.getProducts().subscribe((data: Object[]) => {
       this.products = data.map(product => {
-        product['imgUrl'] = "../assets/No_Image_Available.gif";
+        product['imgUrl'] = "../assets/rug.png";
         return product;
       });
     });
   }
 
   handleProductClicked(data){
-    // console.log(`${data.id}. ${data.name}: \$${data.price}`);
+    console.log(`${data.id}. ${data.name}: \$${data.price}`);
   }
 }
