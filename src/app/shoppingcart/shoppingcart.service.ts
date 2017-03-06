@@ -17,17 +17,18 @@ export class ShoppingCartService {
 
     public sendCartLength(){
         let len: any;
-        // if (this.cart.length > 1){
-        //     len = this.cart.reduce((a,b) => {
-        //         console.log(a,b)
-        //         return a['quantity'] + b['quantity']
-        //     })
-        // } else {
-        //     len = this.cart.length
-        // }
-        len = this.cart.length
         
-        // console.log(len)
+        // len = this.cart.length
+        if (this.cart.length >= 1){
+            len = this.cart.reduce((a, b) => {
+                return a['quantity'] + b['quantity']
+            })
+        } else {
+            len = this.cart.length
+        }
+        
+        
+        console.log(len)
         this.subject.next(len)
     }
 
